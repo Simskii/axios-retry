@@ -1,4 +1,4 @@
-import isRetryAllowed from 'is-retry-allowed';
+
 
 const namespace = 'axios-retry';
 
@@ -8,10 +8,7 @@ const namespace = 'axios-retry';
  */
 export function isNetworkError(error) {
   return (
-    !error.response &&
-    Boolean(error.code) && // Prevents retrying cancelled requests
-    error.code !== 'ECONNABORTED' && // Prevents retrying timed out requests
-    isRetryAllowed(error)
+    !error.response
   ); // Prevents retrying unsafe errors
 }
 
