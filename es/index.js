@@ -170,7 +170,7 @@ function fixConfig(axios, config) {
  * @param {Function} [defaultOptions.retryDelay=noDelay]
  *        A function to determine the delay between retry requests
  */
-export default function axiosRetry(axios, defaultOptions) {
+export function axiosRetry(axios, defaultOptions) {
   axios.interceptors.request.use(config => {
     const currentState = getCurrentState(config);
     currentState.lastRequestTime = Date.now();
